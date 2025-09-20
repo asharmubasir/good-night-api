@@ -36,12 +36,20 @@ gem "thruster", require: false
 # gem "rack-cors"
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-
-  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
-
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "rspec-rails", "~> 8.0.0"
+  gem "factory_bot_rails", "~> 6.4", ">= 6.4.4"
+  gem "dotenv-rails", "~> 3.1", ">= 3.1.8"
+end
+
+group :development do
+  gem "annotaterb"
+end
+
+group :test do
+  gem "fuubar", "~> 2.5", ">= 2.5.1"
+  gem "simplecov", "~> 0.22.0", require: false
+  gem "rspec-sidekiq", "~> 5.1"
 end
