@@ -9,7 +9,8 @@ module SleepRecords
     def call
       validate_params!
 
-      context.sleep_record = sleep_record.update!(woke_up_at: clock_time, duration_in_minutes:)
+      sleep_record.update!(woke_up_at: clock_time, duration_in_minutes:)
+      context.sleep_record = sleep_record
     rescue ActiveRecord::RecordInvalid => e
       context.fail!(error: [ e.message ])
     end
