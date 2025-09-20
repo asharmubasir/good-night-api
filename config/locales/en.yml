@@ -1,3 +1,4 @@
 en:
   errors:
     active_sleep_record: "You already have an active clock in, please clock out first"
+    user_not_found: "User not found, please check the name and try again"
