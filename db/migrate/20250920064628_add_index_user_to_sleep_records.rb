@@ -9,6 +9,6 @@ class AddIndexUserToSleepRecords < ActiveRecord::Migration[8.0]
     add_index :sleep_records, [ :user_id, :woke_up_at ],
       where: "woke_up_at IS NULL",
       algorithm: :concurrently,
-      name: "index_active_sleep_records_on_user_and_woke_up_at"
+      name: "index_active_sleep_records_on_user"
   end
 end
