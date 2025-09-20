@@ -21,7 +21,7 @@ module Users
     end
 
     def prevent_self_follow
-      errors.add(:base, I18n.t("errors.cannot_follow_themselves")) if user.id == followee.id
+      errors.add(:base, I18n.t("errors.cannot_follow_or_unfollow_themselves")) if user.id == followee.id
     end
   end
 end

@@ -29,7 +29,7 @@ RSpec.describe Users::Following do
 
     context "when user is following themselves" do
       let(:followee) { user }
-      let(:error_message) { [ "You cannot follow yourself" ] }
+      let(:error_message) { [ "You cannot follow or unfollow yourself" ] }
 
       it_behaves_like "failed following"
     end
