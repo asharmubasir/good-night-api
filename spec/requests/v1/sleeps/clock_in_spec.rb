@@ -40,10 +40,10 @@ RSpec.describe "SleepRecords", type: :request do
     context "when user has an active sleep record" do
       let!(:sleep_record) { create(:sleep_record, :active, user:) }
 
-      it "returns a valid 400 response" do
+      it "returns a valid 422 response" do
         subject
 
-        expect(response).to have_http_status(:bad_request)
+        expect(response).to have_http_status(:unprocessable_content)
       end
 
       it "returns error message" do

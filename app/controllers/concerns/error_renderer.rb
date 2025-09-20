@@ -3,15 +3,12 @@ module ErrorRenderer
 
   private
 
-  def render_error(error)
-    error_json = {
-      error: {
-        code: error.code,
-        message: error.message,
-        detail: error.detail
-      }
-    }
+  def render_failure(error)
+    render json: V1::ApiErrorBlueprint.render(V1::Errors::ResourceNotSaved.new(error), root: :error),
+      status: :unprocessable_content
+  end
 
-    render json: error_json, status: error.http_status
+  def render_error(error)
+    render json: V1::ApiErrorBlueprint.render(error, root: :error), status: error.http_status
   end
 end

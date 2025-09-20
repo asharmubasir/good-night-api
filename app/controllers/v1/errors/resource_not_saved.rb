@@ -2,7 +2,7 @@ module V1
   module Errors
     class ResourceNotSaved < ApiErrorBase
       def http_status
-        :unprocessable_entity
+        :unprocessable_content
       end
 
       def message

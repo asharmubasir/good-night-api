@@ -13,6 +13,7 @@
 #
 class User < ApplicationRecord
   has_many :sleep_records, dependent: :destroy
+  has_one :active_sleep_record, -> { active }, class_name: "SleepRecord"
 
   validates :name, presence: true, uniqueness: true
 end
