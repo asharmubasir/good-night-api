@@ -1,0 +1,46 @@
+version: '3.8'
+
+volumes:
+  pg-data:
+  bundle:
+
+services:
+  postgres:
+    image: us-docker.pkg.dev/easyship-production/external/postgres:17-alpine
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=root
+      - TZ=UTC
+      - PGTZ=UTC
+    volumes:
+      - ./dump-files:/dump-files
+      - pg-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  good-night-api:
+    build: .
+    environment:
+      - DATABASE_URL=postgresql://root@postgres:5432/good_night_api_development
+      - RAILS_ENV=development
+      - RAILS_LOG_TO_STDOUT=true
+    command:
+      - sh
+      - -c
+      - |
+        bundle exec rake db:create db:migrate;
+        bundle exec rails server -p 80 -b '0.0.0.0';
+    ports:
+      - "3003:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - bundle:/usr/local/bundle
+      - ./storage:/rails/storage
+      - ./log:/rails/log
