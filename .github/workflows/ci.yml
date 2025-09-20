@@ -75,9 +75,6 @@ jobs:
           RAILS_ENV: test
           CODE_COVERAGE: true
           SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
-          REDIS_CACHE_DB: 12
-          REDIS_CACHE_POOL_SIZE: 5
-          REDIS_URL: redis://localhost:6379
         run: |
           bin/rails db:prepare
           bundle exec rspec
