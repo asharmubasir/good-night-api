@@ -4,5 +4,8 @@ en:
     not_clocked_in: "You don't have an active clock in, please clock in first"
     invalid_clock_time: "The clock out time must be after the clock in time"
     user_not_found: "User not found, please check the name and try again"
-    cannot_follow_themselves: "You cannot follow yourself"
+    cannot_follow_or_unfollow_themselves: "You cannot follow or unfollow yourself"
     already_followed: "You already follow this user"
+    not_following: "You are not following this user"
+    record_not_destroyed: "Failed to destroy the record"
+
