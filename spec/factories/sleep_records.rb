@@ -12,7 +12,7 @@
 #
 # Indexes
 #
-#  index_active_sleep_records_on_user               (user_id,woke_up_at) WHERE (woke_up_at IS NULL)
+#  index_active_sleep_records_on_user               (user_id,woke_up_at) UNIQUE WHERE (woke_up_at IS NULL)
 #  index_sleep_records_on_duration_in_minutes_desc  (duration_in_minutes) WHERE (duration_in_minutes IS NOT NULL)
 #  index_sleep_records_on_user_id                   (user_id)
 #

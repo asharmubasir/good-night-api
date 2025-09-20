@@ -22,7 +22,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_20_064628) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["duration_in_minutes"], name: "index_sleep_records_on_duration_in_minutes_desc", order: :desc, where: "(duration_in_minutes IS NOT NULL)"
-    t.index ["user_id", "woke_up_at"], name: "index_active_sleep_records_on_user", where: "(woke_up_at IS NULL)"
+    t.index ["user_id", "woke_up_at"], name: "index_active_sleep_records_on_user", unique: true, where: "(woke_up_at IS NULL)"
     t.index ["user_id"], name: "index_sleep_records_on_user_id"
   end
 
