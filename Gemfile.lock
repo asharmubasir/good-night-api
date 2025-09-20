@@ -189,6 +189,7 @@ GEM
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     ostruct (0.6.3)
+    pagy (9.4.0)
     parallel (1.27.0)
     parser (3.3.9.0)
       ast (~> 2.4.1)
@@ -388,6 +389,7 @@ DEPENDENCIES
   jwt (~> 2.10, >= 2.10.1)
   kamal
   oj (~> 3.16, >= 3.16.10)
+  pagy (~> 9.3, >= 9.3.4)
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 8.0.2, >= 8.0.2.1)

@@ -45,6 +45,9 @@ gem "jwt", "~> 2.10", ">= 2.10.1"
 gem "blueprinter", "~> 1.1", ">= 1.1.2"
 gem "oj", "~> 3.16", ">= 3.16.10"
 
+# Pagination
+gem "pagy", "~> 9.3", ">= 9.3.4"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
