@@ -19,8 +19,10 @@
 #  fk_rails_...  (followee_id => users.id)
 #  fk_rails_...  (follower_id => users.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Follow, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "is valid with valid attributes" do
+    expect(build(:follow)).to be_valid
+  end
 end
