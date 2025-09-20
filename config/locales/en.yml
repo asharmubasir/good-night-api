@@ -1,4 +1,6 @@
 en:
   errors:
     active_sleep_record: "You already have an active clock in, please clock out first"
+    not_clocked_in: "You don't have an active clock in, please clock in first"
+    invalid_clock_time: "The clock out time must be after the clock in time"
     user_not_found: "User not found, please check the name and try again"
