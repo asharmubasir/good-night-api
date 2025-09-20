@@ -2,18 +2,18 @@
 SHELL:=/bin/bash
 SERVER="good-night-api"
 
-start-services-development:
+start-local-dev:
 	./start-local-env-with-docker.sh
 
-stop-services-development:
+stop-local-dev:
 	docker compose stop
 
-restart-services-development: rm-rails-pid
+restart-local-dev: rm-rails-pid
 	docker compose restart
 
-reset-services-development: remove-services-development start-services-development
+reset-local-dev: remove-local-dev start-local-dev
 
-remove-services-development:
+remove-local-dev:
 	docker compose down -v --remove-orphans
 
 rm-rails-pid:
@@ -22,10 +22,13 @@ rm-rails-pid:
 	*) rm -rf tmp/pids/*.pid || true ;; \
 	esac
 
-rspec:
-	docker compose run --rm $(SERVER) bash -c "bundle exec rspec $(filter-out $@,$(MAKECMDGOALS))"
-
 bundle-install:
 	docker compose run --rm $(SERVER) bash -c "bundle install --retry 5"
 	make rm-rails-pid
 	docker compose restart
+
+migrate-local-dev:
+	docker compose run --rm $(SERVER) bash -c "bundle exec rails db:migrate"
+
+rspec:
+	docker compose run --rm $(SERVER) bash -c "bundle exec rspec $(filter-out $@,$(MAKECMDGOALS))"
