@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     scope "/users" do
       post "follow", to: "follows#create"
+      delete "unfollow", to: "follows#destroy"
     end
   end
 end

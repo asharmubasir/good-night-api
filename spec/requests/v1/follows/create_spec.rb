@@ -46,7 +46,7 @@ RSpec.describe "V1::Users::Follows", type: :request do
       it "returns an error message" do
         subject
 
-        expect(json.dig("error", "detail")).to match_array([ "You cannot follow yourself" ])
+        expect(json.dig("error", "detail")).to match_array([ "You cannot follow or unfollow yourself" ])
       end
     end
 
