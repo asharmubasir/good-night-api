@@ -8,5 +8,9 @@ Rails.application.routes.draw do
       post :clock_in, on: :collection
       post :clock_out, on: :collection
     end
+
+    scope "/users" do
+      post "follow", to: "follows#create"
+    end
   end
 end
