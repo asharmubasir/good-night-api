@@ -35,6 +35,16 @@ gem "thruster", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
 
+# Use interactor for business logic
+gem "interactor", "~> 3.1", ">= 3.1.2"
+
+# API Authentication
+gem "jwt", "~> 2.10", ">= 2.10.1"
+
+# JSON Serialization
+gem "blueprinter", "~> 1.1", ">= 1.1.2"
+gem "oj", "~> 3.16", ">= 3.16.10"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
