@@ -91,9 +91,9 @@ Include metadata:
   "sleep_records": [...],
   "meta": {
     "pagination": {
-      "count": 10,
       "page": 1,
-      "next": "/v1/sleep_records?page=2"
+      "next": 2,
+      "count": null,
     }
   }
 }
