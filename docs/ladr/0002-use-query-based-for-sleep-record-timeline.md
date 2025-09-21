@@ -46,3 +46,4 @@ on demand, filtered to the last week, and ordered by `duration_in_minutes`, for 
   ruby script/load_test.rb 1
   ```
 - Simple to maintain and extend in Rails
+- If future requirements demand lower latency or personalized ranking, we may need to revisit Redis fan-out or another caching strategy.
