@@ -74,7 +74,7 @@ class LoadTest < ConcurrentApiTest
     while Time.now - start_time < 60 # Run for 60 seconds
       puts "⏳ Running sustained load... #{(Time.now - start_time).round}s"
 
-      result = test_concurrent(
+      test_concurrent(
         concurrent_users: 10,
         requests_per_user: 5
       )
