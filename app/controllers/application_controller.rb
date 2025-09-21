@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
   include ErrorRenderer
   include ExceptionHandler
+  include Pagy::Backend
 
   before_action :authenticate_user
 
