@@ -1,6 +1,6 @@
 require "factory_bot"
 
-class DatabaseSeed
+class SeedData
   include FactoryBot::Syntax::Methods
 
   def initialize
