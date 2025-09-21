@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       post :clock_out, on: :collection
     end
 
+    resources :sleep_timelines, only: [ :index ]
+
     scope "/users" do
       post "follow", to: "follows#create"
       delete "unfollow", to: "follows#destroy"

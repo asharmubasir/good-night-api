@@ -1,7 +1,5 @@
 module V1
   class SleepRecordsController < ApplicationController
-    include Pagy::Backend
-
     def index
       collection = current_user.sleep_records.order(created_at: :desc)
       pagy, records = pagy_countless(collection)
