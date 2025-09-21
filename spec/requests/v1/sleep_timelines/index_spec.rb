@@ -16,7 +16,7 @@ RSpec.describe "V1::SleepTimelinesController#index", type: :request do
 
   let!(:sleep_record_1) { create(:sleep_record, user: followee_1, duration_in_minutes: 400) }
   let!(:sleep_record_2) { create(:sleep_record, user: followee_2, duration_in_minutes: 500) }
-  let!(:sleep_record_3) { create(:sleep_record, user: followee_1, created_at: (1.week + 1.day).ago, duration_in_minutes: 300) }
+  let!(:sleep_record_3) { create(:sleep_record, user: followee_1, slept_at: (1.week + 1.day).ago, duration_in_minutes: 300) }
 
   context "with authenticated user" do
     it "returns a list of sleep timelines" do

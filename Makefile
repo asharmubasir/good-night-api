@@ -30,9 +30,6 @@ bundle-install:
 migrate-local-dev:
 	docker compose run --rm $(SERVER) bash -c "bundle exec rails db:migrate"
 
-setup-test-db:
-	docker compose run --rm $(SERVER) bash -c "RAILS_ENV=test bundle exec rails db:create db:schema:load"
-
 rspec:
 	docker compose run --rm $(SERVER) bash -c "RAILS_ENV=test bundle exec rspec $(filter-out $@,$(MAKECMDGOALS))"
 
