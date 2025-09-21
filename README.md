@@ -2,6 +2,8 @@
 
 Good Night API is a backend service built with Ruby on Rails and PostgreSQL. This guide will help you set up the project locally or using Docker for development and testing.
 
+For more details about the API, see [API DOC](/docs/API_DOC.md)
+
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
@@ -158,5 +160,5 @@ Make sure your database is migrated and up-to-date before making API calls.
 
 ## Troubleshooting
 
-**Permission errors with bundle install?**
+**Rspec errors?**
 - Try rebuilding the containers: `make reset-local-dev`
