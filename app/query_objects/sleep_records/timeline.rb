@@ -7,11 +7,9 @@ module SleepRecords
     def call
       user.followings
         .joins(:sleep_records)
-        .where(sleep_records: {
-          slept_at: 1.week.ago..Time.current,
-          duration_in_minutes: 0..Float::INFINITY
-        })
-        .select("users.name, sleep_records.*")
+        .where(sleep_records: { created_at: 1.week.ago..Time.current })
+        .where.not(sleep_records: { duration_in_minutes: nil })
+        .select("users.id as user_id, users.name as user_name, sleep_records.*")
         .order("sleep_records.duration_in_minutes DESC")
     end
 

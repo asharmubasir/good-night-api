@@ -6,7 +6,7 @@ module V1
       pagy, records = pagy_countless(timeline_items)
       meta = { pagination: pagy_metadata(pagy) }
 
-      render json: V1::SleepRecordBlueprint.render(records, root: :sleep_timeline, meta:), status: :ok
+      render json: V1::SleepRecordBlueprint.render(records, root: :sleep_timeline, meta:, view: :timeline), status: :ok
     end
   end
 end
