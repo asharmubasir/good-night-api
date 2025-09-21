@@ -2,6 +2,7 @@ version: '3.8'
 
 volumes:
   pg-data:
+  bundle-data:
 
 services:
   postgres:
@@ -31,6 +32,7 @@ services:
       - DATABASE_URL=postgresql://root@postgres:5432/good_night_api_development
       - RAILS_ENV=development
       - RAILS_LOG_TO_STDOUT=true
+      - SECRET_KEY_BASE=1f7d35cfb6ec8bef980132e74b17d8dd27a2c2034095fa63e4526417f4358e72209c24f319e23598924ea47b3fd27ded6d02ec60e962141bfebca8035ecd7845
     command:
       - sh
       - -c
@@ -47,3 +49,4 @@ services:
       - .:/rails:cached
       - ./storage:/rails/storage
       - ./log:/rails/log
+      - bundle-data:/usr/local/bundle
