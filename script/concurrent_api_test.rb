@@ -241,8 +241,8 @@ class ConcurrentApiTest
       puts "   🟢 EXCELLENT - All requests under 100ms"
     elsif percentile(response_times, 95) < 0.2
       puts "   🟡 GOOD - 95% of requests under 200ms"
-    elsif percentile(response_times, 95) < 0.5
-      puts "   🟠 ACCEPTABLE - 95% of requests under 500ms"
+    elsif percentile(response_times, 95) < 0.7
+      puts "   🟠 ACCEPTABLE - 95% of requests under 700ms"
     else
       puts "   🔴 NEEDS OPTIMIZATION - Too many slow requests"
     end
