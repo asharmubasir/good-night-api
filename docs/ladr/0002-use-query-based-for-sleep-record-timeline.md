@@ -11,7 +11,8 @@ Accepted
 We need a way to provide a timeline of sleep records for a user's followings.
 Options considered:
 - **Materialized views** - Provide fast reads, but refreshing them at scale proved too heavy and impractical. Every refresh required scanning large amounts of data, which did not finish in a reasonable time.
-- **Redis fan-out** - Offers high performance but requires additional infrastructure and background jobs. Given the limited timeframe (2 days for this test project), implementing and maintaining this was not feasible.
+- **Redis fan-out** - Offers high performance but requires additional infrastructure and background jobs. Given the limited timeframe (2 days for this test project), implementing and testing this was not feasible.
+- **Denormalize table** - Precomputes timelines for each user for fast reads, but increases write complexity whenever a user or their following adds a record.
 - **On-demand query** simplest to implement, always returns fresh data, and (with proper indexes) performed surprisingly well in practice, even with large datasets generated during seeding.
 
 
