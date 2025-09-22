@@ -39,7 +39,7 @@ gem "thruster", require: false
 gem "interactor", "~> 3.1", ">= 3.1.2"
 
 # API Authentication
-gem "jwt", "~> 2.10", ">= 2.10.1"
+gem "jwt", "~> 3.1"
 
 # JSON Serialization
 gem "blueprinter", "~> 1.1", ">= 1.1.2"
