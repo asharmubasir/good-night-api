@@ -14,8 +14,8 @@ RSpec.describe "V1::SleepTimelinesController#index", type: :request do
   let!(:follow_1) { create(:follow, follower: user, followee: followee_1) }
   let!(:follow_2) { create(:follow, follower: user, followee: followee_2) }
 
-  let!(:sleep_record_1) { create(:sleep_record, user: followee_1, duration_in_minutes: 400) }
-  let!(:sleep_record_2) { create(:sleep_record, user: followee_2, duration_in_minutes: 500) }
+  let!(:sleep_record_1) { create(:sleep_record, user: followee_1, slept_at: 2.days.ago, duration_in_minutes: 400) }
+  let!(:sleep_record_2) { create(:sleep_record, user: followee_2, slept_at: 3.days.ago, duration_in_minutes: 500) }
   let!(:sleep_record_3) { create(:sleep_record, user: followee_1, slept_at: (1.week + 1.day).ago, duration_in_minutes: 300) }
 
   context "with authenticated user" do
@@ -70,8 +70,8 @@ RSpec.describe "V1::SleepTimelinesController#index", type: :request do
 
     let(:pagination_response) { json["meta"]["pagination"] }
 
-    let!(:sleep_records_1) { create_list(:sleep_record, 12, user: followee_1, duration_in_minutes: 100) }
-    let!(:sleep_records_2) { create_list(:sleep_record, 15, user: followee_2, duration_in_minutes: 200) }
+    let!(:sleep_records_1) { create_list(:sleep_record, 12, user: followee_1, slept_at: 2.days.ago, duration_in_minutes: 100) }
+    let!(:sleep_records_2) { create_list(:sleep_record, 15, user: followee_2, slept_at: 3.days.ago, duration_in_minutes: 200) }
 
     it "returns at most 20 sleep timeline records by default" do
       subject
